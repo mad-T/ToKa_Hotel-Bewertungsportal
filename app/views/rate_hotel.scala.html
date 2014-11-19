@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ToKa</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="../../public/stylesheets/bootstrap.min.customized.css">
+	<script src="FRAMEWORKS/bootstrap/dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div id="toka_header">
+	<header>
+		<div class="toka_headerTopLine">
+			<div class="headerLinks">
+				<a href="login.scala.html" class="navbar-link">Anmelden |</a>
+				<a href="registration.scala.html" class="navbar-link"> Registrieren</a>
+			</div>
+		</div>
+		<div class="toka_logo">
+			<a href="index.scala.html"><img alt="ToKa Logo" src="../../public/images/logo.jpg"></a>
+		</div>
+			<div class="toka_headerText">
+				<h1>ToKa - Dein Bewertungsportal</h1>
+			</div>
+		<div>
+			<form class="form-inline" role="search">
+				<div class="form-group toka_headerSearch">
+					<input type="text" class="form-control" placeholder="Hotel Suchen">
+					<button type="submit" class="btn btn-default">suchen</button>
+			</form>
+		</div>
+	</header>
+</div>
+	<h1>Bewertung für Hotel...</h1>
+	<form>	
+			Art
+				<select class="form-control toka_textfelder" name="Urlaub">
+					<option value="F">Familienurlaub</option>
+					<option value="S">Single Urlaub</option>
+					<option value="P">Party Urlab</option>
+					<option value="K">Kultur Urlaub</option>
+				</select><br/>
+			Kindergeeignet?
+					<label class="radio-inline">
+					 <input type="radio" name="kinder" id="k1" value="Ja"> Ja
+					</label>
+					<label class="radio-inline">
+					  <input type="radio" name="kinder" id="k2" value="Nein"> Nein
+					</label><br>
+			Verpflegung
+				<select class="form-control toka_textfelder" name="Verpflegung">
+					<option value="AI">All Inclusive</option>
+					<option value="V">Vollpension</option>
+					<option value="H">Halbpension</option>
+					<option value="N">Nichts</option>
+				</select><br/>
+			Von
+			<input type="date" class="form-control toka_textfelder" name="Von" placeholder="dd/mm/yyyy"><br/>
+			Bis
+			<input type="date" class="form-control toka_textfelder" name="Bis" placeholder="dd/mm/yyyy"><br/>
+			Rating
+			<input type="text" class="form-control toka_textfelder" name="Rating"><br/>
+	<p><textarea class="form-control toka_textarea" name="beschreibung" placeholder="Beschreibung"  cols="100" rows="10"></textarea></p>
+	<p><a href=" ">Laden</a> Sie hier Fotos hoch</p>
+	</form>
+</body>

@@ -1,0 +1,58 @@
+body{
+	background-image: url(../images/hintergrund_trans.jpg);
+ }
+ 
+#toka_header {
+	position: relative;
+	height: 220px;
+	margin: 0px 50px 10px 50px;
+}
+.toka_headerTopLine {
+    position: absolute;
+    top: 78px;
+    right: 123px;
+}
+ 
+ .toka_logo {
+    position: absolute;
+    top: 30px;
+    left: 0px;
+}
+
+.toka_headerText {
+    position: absolute;
+    top: 80px;
+	left:480px;
+}
+
+.toka_headerSearch {
+    position: absolute;
+    top: 103px;
+    right: 30px;
+}
+
+ #body{
+	position: relative;
+ }
+ 
+ .toka_textfelder{
+	width: 20%;
+ }
+ 
+  .toka_textarea{
+	width: 40%;
+ }
+ 
+ .abstand-rechts{
+	margin-right: 10px;
+ }
+ 
+ .navbar-brand{
+    line-height: 90px;
+    height: 90px;
+    padding-top: 0;
+}
+
+.navbar-text{
+	font-size:40px;
+}
