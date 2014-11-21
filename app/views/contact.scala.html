@@ -1,41 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ToKa</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../public/stylesheets/bootstrap.min.customized.css">
-	<script src="FRAMEWORKS/bootstrap/dist/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div id="toka_header">
-	<header>
-		<div class="toka_headerTopLine">
-			<div class="headerLinks">
-				<a href="login.scala.html" class="navbar-link">Anmelden |</a>
-				<a href="registration.scala.html" class="navbar-link"> Registrieren</a>
-			</div>
+@main("Kontakt") {
+<div class="row">
+	<div class="col-md-3">
+		<div class="container-fluid">
+			<h2 class="toka_weisserText">Kontakt</h2>
+			<strong class="toka_weisserText">ToKa GmbH</strong>
+			<p class="toka_weisserText">Hauptstraße 1a</p>		
+			<p class="toka_weisserText">78462 Konstanz</p>	
+			<p class="toka_weisserText">Telefon: +49 0176 00000010</p>
 		</div>
-		<div class="toka_logo">
-			<a href="index.scala.html"><img alt="ToKa Logo" src="../../public/images/logo.jpg"></a>
+	</div>
+	<div class="col-md-9">
+		<div class="container-fluid">
+			<h2 class="toka_weisserText">Anfahrt</h2>
+			<img src=@routes.Assets.at("images/anfahrt.jpg") alt="Anfahrt">
 		</div>
-			<div class="toka_headerText">
-				<h1>ToKa - Dein Bewertungsportal</h1>
-			</div>
-		<div>
-			<form class="form-inline" role="search">
-				<div class="form-group toka_headerSearch">
-					<input type="text" class="form-control" placeholder="Hotel Suchen">
-					<button type="submit" class="btn btn-default">suchen</button>
-			</form>
-		</div>
-	</header>
+	</div>
 </div>
-	<h1>Kontakt</h1>
-	<p>ToKa GmbH</p>
-	<p>Hauptstraße 1a</p>
-	<p>78462 Konstanz</p>
-	<h1>Anfahrt</h1>
-	<img src="../../public/images/anfahrt.jpg" alt="Error">
-
-</body>
-</html>
+}

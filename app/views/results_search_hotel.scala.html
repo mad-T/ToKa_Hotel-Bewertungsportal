@@ -1,44 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ToKa</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../public/stylesheets/bootstrap.min.customized.css">
-</head>
-<body>
-<div id="toka_header">
-	<header>
-		<div class="toka_headerTopLine">
-			<div class="headerLinks">
-				<a href="login.scala.html" class="navbar-link">Anmelden |</a>
-				<a href="registration.scala.html" class="navbar-link"> Registrieren</a>
+@main("Suchergebnis") {
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container-fluid">
+				<h1 class="toka_weisserText">Ergebnis Ihrer Suche:</h1>
+				<p class="toka_weisserText">Es wurden *anzahlHotels* gefunden:</p><br/>
+				<p><a href="information_1hotel.scala.html"><img src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></a></img></p>
+				<p class="toka_weisserText">*Daten zum Hotel aus der Datenbank*</p>
 			</div>
 		</div>
-		<div class="toka_logo">
-			<a href="index.scala.html"><img alt="ToKa Logo" src="../../public/images/logo.jpg"></a>
-		</div>
-			<div class="toka_headerText">
-				<h1>ToKa - Dein Bewertungsportal</h1>
-			</div>
-		<div>
-			<form class="form-inline" role="search">
-				<div class="form-group toka_headerSearch">
-					<input type="text" class="form-control" placeholder="Hotel Suchen">
-					<button type="submit" class="btn btn-default">suchen</button>
-			</form>
-		</div>
-	</header>
-</div>
-	<a href="index.scala.html"><img src="../../public/images/logo.jpg" alt="Startseite"></a>
-	<p>
-	<h1>Ergebnis Ihrer Suche:</h1>
-	</p>
-	Es wurden *anzahlHotels* gefunden:
-	<br />
-	<p>
-		<a href="information_1hotel.scala.html"><img src="../../public/images/hotelA.jpg"
-			alt="Hotel A"></a>
-	</p>
-	*Daten zum Hotel aus der Datenbank*
-</body>
-</html>
+	</div>
+}

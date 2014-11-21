@@ -3,12 +3,22 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
-## Testen (Kommentar wieder löschen!)
-#GET		/login						controllers.Application.test()
-
+GET     	/					                    controllers.Application.index()
+GET			/index.scala.html						controllers.Application.index()
+GET			/contact.scala.html						controllers.Application.contact()
+GET			/goodbye.scala.html						controllers.Application.goodbye()
+GET			/agbs.scala.html						controllers.Application.agbs()
+GET			/impressum.scala.html					controllers.Application.impressum()
+GET			/information_1hotel.scala.html			controllers.Application.information_1hotel()
+GET			/login.scala.html						controllers.Application.login()
+GET			/newsletter.scala.html					controllers.Application.newsletter()
+GET			/profile.scala.html						controllers.Application.profile()
+GET			/rate_hotel.scala.html					controllers.Application.rate_hotel()
+GET			/registration.scala.html				controllers.Application.registration()
+GET			/results_search_hotel.scala.html		controllers.Application.results_search_hotel()
+GET			/search_hotel.scala.html				controllers.Application.search_hotel()
+GET			/welcome.scala.html						controllers.Application.welcome()
 
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
-#GET		/stylesheets/*file			Assets.at("public/stylesheets", file)

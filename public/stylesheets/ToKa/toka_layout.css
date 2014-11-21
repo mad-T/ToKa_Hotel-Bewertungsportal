@@ -1,0 +1,13 @@
+ body{
+	background-image: url(../images/hintergrund_trans.jpg);
+ }
+ 
+ .abstand-rechts{
+	margin-right: 10px;
+ }
+ 
+ .navbar-brand{
+    line-height: 90px;
+    height: 90px;
+    padding-top: 0;
+ }

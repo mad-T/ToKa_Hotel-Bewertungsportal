@@ -1,46 +1,30 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ToKa</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../public/stylesheets/bootstrap.min.customized.css">
-	<script src="FRAMEWORKS/bootstrap/dist/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div id="toka_header">
-	<header>
-		<div class="toka_headerTopLine">
-			<div class="headerLinks">
-				<a href="login.scala.html" class="navbar-link">Anmelden |</a>
-				<a href="registration.scala.html" class="navbar-link"> Registrieren</a>
-			</div>
+@main("Willkommen") {
+<div class="row">
+	<div class="col-md-12">
+		<div class="container-fluid">
+			<h2 class="toka_weisserText">Willkommen bei ToKa - Dein Hotelbewertungsportal</h3>
+			<h3 class="toka_weisserText">Hallo ...</h3>
 		</div>
-		<div class="toka_logo">
-			<a href="index.scala.html"><img alt="ToKa Logo" src="../../public/images/logo.jpg"></a>
-		</div>
-			<div class="toka_headerText">
-				<h1>ToKa - Dein Bewertungsportal</h1>
-			</div>
-		<div>
-			<form class="form-inline" role="search">
-				<div class="form-group toka_headerSearch">
-					<input type="text" class="form-control" placeholder="Hotel Suchen">
-					<button type="submit" class="btn btn-default">suchen</button>
-			</form>
-		</div>
-	</header>
+	</div>
 </div>
-	<h1>Willkommen bei ToKa - Dein Hotelbewertungsportal</h1>
-	<h2>Hallo ...</h2>
-	
-	<video>
-		<source src="movie.mp4" type="video/mp4">
-		<source src="movie.webm" type="video/webm">
-		<source src="movie.ogg" type="video/ogg">
-		Your browser does not support the video tag.
-	</video>
-	
-	<p>Hotel bewerten? Klicken Sie <a href="rate_hotel.scala.html">hier</a></p>
-	<p><a href="profile.scala.html">Hier</a> geht's zum Profil</p>
-
-</body>
+<div class="row">
+	<div class="col-md-12">
+		<div class="container-fluid">
+			<video>
+				<source src="movie.mp4" type="video/mp4">
+				<source src="movie.webm" type="video/webm">
+				<source src="movie.ogg" type="video/ogg">
+				<p class="toka_weisserText">Your browser does not support the video tag</p>
+			</video>
+		</div>
+	</div>
+</div>	
+<div class="row">
+	<div class="col-md-12">
+		<div class="container-fluid">
+			<p class="toka_weisserText">Hotel bewerten? Klicken Sie <a href="rate_hotel.scala.html">hier</a></p>
+			<p class="toka_weisserText"><a href="profile.scala.html">Hier</a> geht's zum Profil</p>
+		</div>
+	</div>
+</div>
+}

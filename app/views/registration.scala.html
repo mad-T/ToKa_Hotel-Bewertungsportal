@@ -1,66 +1,46 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ToKa</title>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="../../public/stylesheets/bootstrap.min.customized.css">
-	<script src="FRAMEWORKS/bootstrap/dist/js/bootstrap.min.js"></script>
-</head>
-<body>
-<div id="toka_header">
-	<header>
-		<div class="toka_headerTopLine">
-			<div class="headerLinks">
-				<a href="login.scala.html" class="navbar-link">Anmelden |</a>
-				<a href="registration.scala.html" class="navbar-link"> Registrieren</a>
-			</div>
+@main("Registrieren") {
+<div class="row">
+	<div class="col-md-4">
+		<div class="container">
+			<h1 class="toka_weisserText">Registrieren</h1>
+				<form>
+					<input class="form-control toka_textfelder" placeholder="Vorname" type="text" name="Vorname"></br>
+					<input class="form-control toka_textfelder" placeholder="Nachname" type="text" name="Nachname"></br>
+					<input class="form-control toka_textfelder" placeholder="Alter" type="text" name="Alter" class="form-control"></br>
+								
+					<p class="toka_weisserText">Geschlecht</p>
+					<select class="form-control toka_textfelder"  name="Geschlecht">
+						<option value="m">männlich</option>
+						<option value="w">weiblich</option>
+					</select><br/>
+					
+					<p class="toka_weisserText">Familienstand<p/>
+					<select class="form-control toka_textfelder"  name="Familienstand">
+						<option value="ld">Ledig</option>
+						<option value="vh"><Verheiratet</option>
+						<option value="gt">Getrennt</option>
+						<option value="gs">Geschieden</option>
+						<option value="vw">Verwitwet</option>
+					</select><br/>
+					
+					<input class="form-control toka_textfelder" placeholder="Straße" type="text" name="Straße"></br>
+					<input class="form-control toka_textfelder" placeholder="Ort" type="text" name="Ort"></br>
+					<input class="form-control toka_textfelder" placeholder="Postleitzahl" type="text" name="Postleitzahl"></br>
+					<input class="form-control toka_textfelder" placeholder="Benutzer" type="text" name="Benutzer"></br>
+					<input class="form-control toka_textfelder" placeholder="Passwort" type="password" name="Passwort"></br>
+					<input class="form-control toka_textfelder" placeholder="Passwort Wdh." type="password" name="Passwort Wdh"></br>
+					<input class="form-control toka_textfelder" placeholder="Email Adresse" type="text" name="Email Adresse"></br>
+					<p><a href="agbs.scala.html">AGB's</a> akzeptieren</p>
+					<p><input type="checkbox" name="AGBs"/>stimme zu</p>
+					<button type="button" class="btn btn-default">Abschicken</button>
+				</form>
 		</div>
-		<div class="toka_logo">
-			<a href="index.scala.html"><img alt="ToKa Logo" src="../../public/images/logo.jpg"></a>
+	</div>
+	<div class="col-md-8">
+		<div class="container-fluid">
+			<img src=@routes.Assets.at("images/platzhalter.jpg") alt="Profilbild">
+			<input type="file" name="upload">
 		</div>
-			<div class="toka_headerText">
-				<h1>ToKa - Dein Bewertungsportal</h1>
-			</div>
-		<div>
-			<form class="form-inline" role="search">
-				<div class="form-group toka_headerSearch">
-					<input type="text" class="form-control" placeholder="Hotel Suchen">
-					<button type="submit" class="btn btn-default">suchen</button>
-			</form>
-		</div>
-	</header>
+	</div>
 </div>
-	<h1>Registrierung</h1>
-	<img src="../../public/images/platzhalter.jpg" class="pull-right abstand-rechts" alt="Error">
-	<input type="file" name="upload" class="pull-right abstand-rechts">
-	<form>
-			<input  placeholder="Vorname" type="text" name="Vorname" class="form-control toka_textfelder">
-			<input  placeholder="Nachname" type="text" name="Nachname" class="form-control toka_textfelder">
-			<input  placeholder="Alter" type="text" name="Alter" class="form-control toka_textfelder">
-						
-			Geschlecht
-				<select  class="form-control toka_textfelder" name="Geschlecht">
-					<option value="m">männlich</option>
-					<option value="w">weiblich</option>
-				</select><br/>
-			
-			Familienstand
-				<select  class="form-control toka_textfelder" name="Familienstand">
-					<option value="ld">Ledig</option>
-					<option value="vh">Verheiratet</option>
-					<option value="gt">Getrennt</option>
-					<option value="gs">Geschieden</option>
-					<option value="vw">Verwitwet</option>
-				</select><br/>
-			<input  placeholder="Straße" type="text" name="Straße" class="form-control toka_textfelder">
-			<input  placeholder="Ort" type="text" name="Ort" class="form-control toka_textfelder">
-			<input  placeholder="Postleitzahl" type="text" name="Postleitzahl" class="form-control toka_textfelder">
-			<input  placeholder="Benutzer" type="text" name="Benutzer" class="form-control toka_textfelder">
-			<input  placeholder="Passwort" type="password" name="Passwort" class="form-control toka_textfelder">
-			<input  placeholder="Passwort Wdh." type="password" name="Passwort Wdh" class="form-control toka_textfelder">
-			<input  placeholder="Email Adresse" type="text" name="Email Adresse" class="form-control toka_textfelder">
-	<p><a href="agbs.scala.html">AGB's</a> akzeptieren</p>
-	<p><input type="checkbox" name=“AGB”/>stimme zu</p>
-	<button type="submit" class="btn btn-default">registrieren</button>
-	</form>
-</body>
+}

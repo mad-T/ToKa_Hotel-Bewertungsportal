@@ -1,7 +1,64 @@
-@(message: String)
+@main("ToKa - Startseite") {
+	<div class="row">
+		<div class="col-md-4">
+			<div class="container-fluid">
+				<h1 class="toka_weisserText">Hotelsuche</h1>
+				<form class="navbar-form navbar-left" role="search">
+					<div class="form-group">
+						<p>
+							<input placeholder="Land" type="text" name="land"
+								class="form-control toka_textfelder">
+						</p>
+						<p>
+							<input placeholder="Stadt" type="text" name="stadt"
+								class="form-control toka_textfelder">
+						</p>
+						<p>
+							<input placeholder="Hotel" type="text" name="hotel"
+								class="form-control toka_textfelder">
+						</p>
+						<button type="button" onclick="" class="btn btn-default">Suchen</button>
+						<a class="toka_weisserText" href="search_hotel.scala.html">erweiterte Suche</a>	
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<p class="text-center">
+			<h3>
+				Schon ihren letzten Hotelbesuch bewertet?<br /> Nein ? - Dann <a class="toka_weisserText"
+					href="search_hotel.scala.html">los!!</a>
+			</h3>
+			</p>
+		</div>
+		<div class="col-md-4">"Kürzlich bewertet Funktion"
 
-@main("Welcome to Play") {
-
-    @play20.welcome(message, style = "Java")
-
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container-fluid">
+				<h1 class="toka_weisserText">Traumziele 2014</h1>
+					<span>
+						<a href="information_1hotel.scala.html"> <img width="200px" height="200px"
+						src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></img>				
+						</a>
+			<!--</div>
+			<div class="col-md-2"> -->
+						<a href="information_1hotel.scala.html"> <img width="200px" height="200px"
+						src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></img>
+						</a>
+			<!--</div>
+			<div class="col-md-2"> -->
+						<a href="information_1hotel.scala.html"> <img width="200px" height="200px"
+						src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></img>
+						</a>
+					</span>
+			<!--</div>
+			<div class="col-md-2"></div> -->
+		<!-- </div>
+		<div class="col-md-4">.col-md-4</div>-->
+			</div>
+		</div>
+	</div>
 }
