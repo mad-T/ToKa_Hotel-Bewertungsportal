@@ -1,14 +1,15 @@
-@main("Profil") {
+@(userVorname: String, userNachname: String, userEmail: String, userGeschlecht: String, userFamilienstand: String, userAlter: String)
+@main("Profil")(userVorname) {
 <div class="row">
 	<div class="col-md-2">
 		<div class="container-fluid">
 			<h2 class="toka_weisserText">Profil</h2>
-			<p class="toka_weisserText">Vorname: </p>
-			<p class="toka_weisserText">Nachname:</p>
-			<p class="toka_weisserText">Email:</p>
-			<p class="toka_weisserText">Geschlecht</p>
-			<p class="toka_weisserText">Familienstand</p>
-			<p class="toka_weisserText">Alter</p>
+			<p class="toka_weisserText">Vorname: @userVorname</p>
+			<p class="toka_weisserText">Nachname: @userNachname</p>
+			<p class="toka_weisserText">Email: @userEmail</p>
+			<p class="toka_weisserText">Geschlecht: @userGeschlecht</p>
+			<p class="toka_weisserText">Familienstand: @userFamilienstand</p>
+			<p class="toka_weisserText">Alter: @userAlter</p>
 			<a class="toka_weisserText" href="merkliste.scala.html">Meine Merkliste</a>
 		</div>
 	</div>

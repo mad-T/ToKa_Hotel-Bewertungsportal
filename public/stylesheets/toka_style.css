@@ -30,10 +30,8 @@
 }
 
 .toka_headerTopLine {
-    position: absolute;
-    top: 78px;
-    right: 123px;
-}
+    padding-left: 1300px;
+ }
  
 .toka_logo {
     position: absolute;

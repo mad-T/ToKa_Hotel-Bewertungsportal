@@ -1,12 +1,28 @@
-@main("Suchergebnis") {
+@(userVorname: String, anzahl:Int, hotels:List[models.Hotel], test:String)
+@main("Suchergebnis")(userVorname) {
 	<div class="row">
 		<div class="col-md-12">
 			<div class="container-fluid">
 				<h1 class="toka_weisserText">Ergebnis Ihrer Suche:</h1>
-				<p class="toka_weisserText">Es wurden *anzahlHotels* gefunden:</p><br/>
-				<p><a href="information_1hotel.scala.html"><img src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></a></img></p>
-				<p class="toka_weisserText">*Daten zum Hotel aus der Datenbank*</p>
+				<p class="toka_weisserText">Es wurde(n) @anzahl Hotel(s) gefunden:</p><br/>
+				<p class="toka_weisserText">Hotelname ist: @test</p><br/>											
 			</div>
 		</div>
 	</div>
+	
+	
+	@for(hotel <- hotels) {
+	<div class="row">
+		<div class="col-md-3">
+			<div class="container-fluid">
+				<img src=@hotel.getTitelbild() alt="Kein Titelbild vorhanden"></img>
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="container-fluid">
+				@hotel.getLangtext()
+			</div>
+		</div>
+	</div>
+	}	
 }

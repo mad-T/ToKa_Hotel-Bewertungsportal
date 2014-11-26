@@ -1,13 +1,11 @@
-@(title: String)(content: Html)
+@(title: String)(userVorname: String)(content: Html)
 
 <!DOCTYPE html>
 
 <html>
     <head>
         <title>@title</title>
-		<meta charset="utf-8">
-		<!-- jQuery -->
-		
+		<meta charset="utf-8">	
 		<!-- Styles -->
         <link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/bootstrap.css")>
 		<link rel="stylesheet" type="text/css" href=@routes.Assets.at("stylesheets/bootstrap-theme.css")>
@@ -15,6 +13,9 @@
 		
 		<!-- JavaScript -->
 		<script type="text/javascript" src=@routes.Assets.at("javascripts/bootstrap.js")></script>
+
+		<!-- jQuery -->
+		<script type="text/javascript" src=@routes.Assets.at("javascripts/jquery-1.11.1.js")></script>
 		
 		<!-- Application specific -->
 		<link rel="shortcut icon" type="image/png" href=@routes.Assets.at("images/favicon.png")>
@@ -24,20 +25,30 @@
 			<header>
 				<div class="toka_headerTopLine">
 					<div class="toka_headerLinks">
-						<a href="login.scala.html" class="toka_weisserText">Anmelden |</a>
-						<a href="registration.scala.html" class="toka_weisserText"> Registrieren</a>
+						@if(userVorname.equals("Guest")){
+						<span>
+							<h5>Hallo <a href="profile.scala.html">@userVorname</a></h5>
+							<a href="login.scala.html" class="toka_weisserText">Anmelden |</a>
+							<a href="registration.scala.html" class="toka_weisserText"> Registrieren</a>
+						</span>
+					} else {
+						<span>
+							<h5 class="toka_weisserText">Hallo <a class="toka_weisserText" href="profile.scala.html">@userVorname</a></h5>
+							<a href=# class="toka_weisserText">Logout</a>
+						</span>
+					}
 					</div>
 				</div>
 				<div class="toka_logo">
 					<a href="index.scala.html"><img alt="ToKa Logo" src=@routes.Assets.at("images/logo.jpg")></a>
 				</div>
 				<div class="toka_headerText">
-					<h1 class="toka_weisserText">ToKa - Dein Bewertungsportal</h1>
+					<h1 class="toka_weisserText">ToKa - Dein Hotel-Bewertungsportal</h1><br>
 				</div>
 				<div>
-					<form class="form-inline" role="search">
+					<form class="form-inline" role="search" method="GET" action="results_search_hotel_fromHeader.scala.html">
 						<div class="form-group toka_headerSearch">
-						<input type="text" class="form-control" placeholder="Hotel Suchen">
+						<input type="text" class="form-control" placeholder="Hotel Suchen" name="hotel">
 						<button type="submit" class="btn btn-default">suchen</button>
 						</div>
 					</form>
@@ -54,5 +65,5 @@
 					| <a href="http://www.facebook.com" target="_blank">follow us on fb</a>
 			</footer>
 		</div>
-    </body>
+	</body>
 </html>

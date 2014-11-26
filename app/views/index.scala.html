@@ -1,9 +1,10 @@
-@main("ToKa - Startseite") {
-	<div class="row">
+@(userVorname: String)
+@main("ToKa - Startseite")(userVorname) {
+<div class="row">
 		<div class="col-md-4">
 			<div class="container-fluid">
 				<h1 class="toka_weisserText">Hotelsuche</h1>
-				<form class="navbar-form navbar-left" role="search">
+				<form class="navbar-form navbar-left" role="search" method="GET" action="results_search_hotel.scala.html">
 					<div class="form-group">
 						<p>
 							<input placeholder="Land" type="text" name="land"
@@ -17,7 +18,7 @@
 							<input placeholder="Hotel" type="text" name="hotel"
 								class="form-control toka_textfelder">
 						</p>
-						<button type="button" onclick="" class="btn btn-default">Suchen</button>
+						<button type="submit" onclick="" class="btn btn-default">Suchen</button>
 						<a class="toka_weisserText" href="search_hotel.scala.html">erweiterte Suche</a>	
 					</div>
 				</form>
@@ -27,7 +28,7 @@
 			<p class="text-center">
 			<h3>
 				Schon ihren letzten Hotelbesuch bewertet?<br /> Nein ? - Dann <a class="toka_weisserText"
-					href="search_hotel.scala.html">los!!</a>
+					href="rate_hotel.scala.html">los!!</a>
 			</h3>
 			</p>
 		</div>
@@ -39,7 +40,7 @@
 		<div class="col-md-12">
 			<div class="container-fluid">
 				<h1 class="toka_weisserText">Traumziele 2014</h1>
-					<span>
+					
 						<a href="information_1hotel.scala.html"> <img width="200px" height="200px"
 						src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></img>				
 						</a>
@@ -53,7 +54,7 @@
 						<a href="information_1hotel.scala.html"> <img width="200px" height="200px"
 						src=@routes.Assets.at("images/hotelA.jpg") alt="Hotelname dynamisch"></img>
 						</a>
-					</span>
+					
 			<!--</div>
 			<div class="col-md-2"></div> -->
 		<!-- </div>

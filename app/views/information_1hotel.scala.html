@@ -1,15 +1,10 @@
-@main("Dyn.Hotelname") {
+@(userVorname: String)
+@main("Dyn.Hotelname")(userVorname) {
 <div class="row">
 	<div class="col-md-12">
 		<div class="container-fluid">
-			<p>
 			<h1 class="toka_weisserText">Hotelname (dynamisch)</h1>
-			</p>
-			<h6>
-				<a class="toka_weisserText" href="rate_hotel.scala.html">Bewertung erfassen </a>| auf Merkliste
-				setzen
-			</h6>
-			Es wurden *anzahlHotels* gefunden:<br/>
+			<h6><a class="toka_weisserText" href="rate_hotel.scala.html">Bewertung erfassen </a>| auf Merkliste setzen</h6>
 			<p>
 				<img src=@routes.Assets.at("images/hotelA.jpg") alt="Hotel A"></a>
 			</p>
@@ -17,7 +12,8 @@
 			<p>
 				<img src=@routes.Assets.at("images/bilderstrecke.jpg")>
 			</p>
-			<h2>Bewertung zu *Hotelname*</h2>
+			<h2>*Hotelname* wurde ingesamt *anzahlHotels* mal bewertet</br>
+			Hier die aktuellsten Bewertungen - <a href=#>alle</a></h2>
 			<p>
 				<img src=@routes.Assets.at("images/bewertungen.jpg")>
 		</div>

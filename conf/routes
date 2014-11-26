@@ -15,10 +15,24 @@ GET			/newsletter.scala.html					controllers.Application.newsletter()
 GET			/profile.scala.html						controllers.Application.profile()
 GET			/rate_hotel.scala.html					controllers.Application.rate_hotel()
 GET			/registration.scala.html				controllers.Application.registration()
-GET			/results_search_hotel.scala.html		controllers.Application.results_search_hotel()
+GET			/results_search_hotel.scala.html		controllers.Application.results_search_hotel(land, stadt, hotel)
 GET			/search_hotel.scala.html				controllers.Application.search_hotel()
 GET			/welcome.scala.html						controllers.Application.welcome()
 
+# ToKa Actions 
+
+# Login überprüfen
+GET			/checkLogin								controllers.Application.checkLogin(email, password)
+# Logout
+#GET			/Logout									controllers.Application.goodbye()
+GET			/registration1.scala.html							controllers.Application.registration1(email)
+
+# Suche aus dem Header
+GET			/results_search_hotel_fromHeader.scala.html			controllers.Application.results_search_hotel_fromHeader(hotel)
+# Suche aus dem Body (erweiterte Suche)
+GET			/results_search_hotel_enhanced.scala.html			controllers.Application.results_search_hotel_enhanced(land, stadt, hotel, verpflegung)
+# Registrierung beim Sumbitten
+GET			/registration1.scala.html							controllers.Application.registration1(email)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

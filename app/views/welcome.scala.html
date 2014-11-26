@@ -1,29 +1,18 @@
-@main("Willkommen") {
+@(userVorname: String)
+@main("Willkommen")(userVorname) {
 <div class="row">
 	<div class="col-md-12">
 		<div class="container-fluid">
 			<h2 class="toka_weisserText">Willkommen bei ToKa - Dein Hotelbewertungsportal</h3>
-			<h3 class="toka_weisserText">Hallo ...</h3>
+			<h3 class="toka_weisserText">Hallo @userVorname</h3>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-12">
 		<div class="container-fluid">
-			<video>
-				<source src="movie.mp4" type="video/mp4">
-				<source src="movie.webm" type="video/webm">
-				<source src="movie.ogg" type="video/ogg">
-				<p class="toka_weisserText">Your browser does not support the video tag</p>
-			</video>
-		</div>
-	</div>
-</div>	
-<div class="row">
-	<div class="col-md-12">
-		<div class="container-fluid">
-			<p class="toka_weisserText">Hotel bewerten? Klicken Sie <a href="rate_hotel.scala.html">hier</a></p>
-			<p class="toka_weisserText"><a href="profile.scala.html">Hier</a> geht's zum Profil</p>
+			<h3 class="toka_weisserText">Hotel bewerten? Klicken Sie <a href="rate_hotel.scala.html">hier</a></h3>
+			<h3 class="toka_weisserText"><a href="profile.scala.html">Hier</a> geht's zu Ihrem Profil</h3>
 		</div>
 	</div>
 </div>

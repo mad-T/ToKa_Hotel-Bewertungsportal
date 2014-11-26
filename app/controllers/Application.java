@@ -1,99 +1,293 @@
 package controllers;
 
-import models.Adresse;
-import models.Bewertung;
-import models.Bild;
-import models.EnthaeltMerkliste;
-import models.EnthaeltZusatzHotel;
-import models.Hotel;
-import models.Land;
-import models.User;
-import models.Zusatz;
 import play.*;
 import play.mvc.*;
 import views.html.*;
+import play.data.Form;
+import java.util.*;
+import models.*;
 
 public class Application extends Controller {
 		
-	Land land1 = new Land("DE", "Deutschland");
-	Land land2 = new Land("IT", "Italien");
-	
-	Adresse adr1 = new Adresse("01", "Konstanz", "DE", "78555");
-	Adresse adr2 = new Adresse("02", "Rom", "IT", "6545");
-	
-	User user1 = new User("user1@web.de", "Paul", "Müller", "20", "maennlich", "ledig", "Haupststrasse 1", "passwort01", "passwort01", "1");
-	User user2 = new User("user2@web.de", "Franz", "Wagner", "65", "maennlich", "ledig", "Haupststrasse 5", "passwort02", "passwort02", "1");
-	
-	Hotel hotel1 = new Hotel("50", "01", "Laaange Beschreibung Hotel in Konstanz", "Schoenes Hotel", "5", "AI", "F", "J");
-	Hotel hotel2 = new Hotel("51", "01", "Laaange Beschreibung Hotel in Rom", "Modernes Hotel", "3", "HP", "S", "J");
-	
-	Bewertung bewertung1 = new Bewertung("90", "Alles Top", "F", "J", "HP", "18/03/2013", "25/03/2013", "4", "22/11/2013", "01");
-	Bewertung bewertung2 = new Bewertung("91", "Altes Hotel", "S", "J", "AI", "10/08/2014", "28/08/2014", "3", "29/08/2014", "02");
-	
-	Bild bild1 = new Bild("80", "Hotel von aussen", "C://", "50", "NULL");
-	Bild bild2 = new Bild("81", "Hotelzimmer", "C://", "NULL", "90");
-	
-	Zusatz zusatz1 = new Zusatz("Pool", "Pool im Aussenbereich");
-	Zusatz zusatz2 = new Zusatz("Fahrrad", "Fahrrad Verleih an der Hotelrezeption");
-	
-	EnthaeltZusatzHotel ezh1 = new EnthaeltZusatzHotel("50", "Pool");
-	EnthaeltZusatzHotel ezh2 = new EnthaeltZusatzHotel("50", "Fahrrad");
-	EnthaeltZusatzHotel ezh3 = new EnthaeltZusatzHotel("51", "Pool");
-
     public static Result index() {
-         return ok(index.render());
+		if (session("vorname") == null){
+			return ok(index.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(index.render(username));
+		}
     }
 
 	 public static Result contact() {
-		return ok(contact.render());
+			if (session("vorname") == null){
+				return ok(contact.render("Guest"));	
+			} else {
+				String username = session("vorname");
+				return ok(contact.render(username));
+			}
 	}
 	
 	public static Result goodbye() {
-		return ok(goodbye.render());
+		if (session("vorname") == null){
+			return ok(goodbye.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			session().clear();
+			return ok(goodbye.render(username));
+		}
 	}
 	
 	public static Result agbs() {
-		return ok(agbs.render());
+		if (session("vorname") == null){
+			return ok(agbs.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(agbs.render(username));
+		}
 	}
 	
 	public static Result impressum() {
-		return ok(impressum.render());
+		if (session("vorname") == null){
+			return ok(impressum.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(impressum.render(username));
+		}
 	}
 	
 	public static Result information_1hotel() {
-		return ok(information_1hotel.render());
+		if (session("vorname") == null){
+			return ok(information_1hotel.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(information_1hotel.render(username));
+		}
 	}
 	
 	public static Result login() {
-		return ok(login.render());
+		if (session("vorname") == null){
+			return ok(login.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(login.render(username));
+		}
 	}
 	
 	public static Result newsletter() {
-		return ok(newsletter.render());
+		if (session("vorname") == null){
+			return ok(newsletter.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(newsletter.render(username));
+		}
 	}
 	
 	public static Result profile() {
-		return ok(profile.render());
+		if (session("vorname") == null){
+			return ok(profile.render("Guest","Guest","Guest","Guest","Guest","Guest"));	
+		} else {
+			String vorname = session("vorname");
+			String nachname = session("nachname");
+			String email = session("email");
+			String geschlecht = session("geschlecht");
+			String familienstand = session("familienstand");
+			String alter = session("alter");
+			return ok(profile.render(vorname, nachname, email, geschlecht, familienstand, alter));
+		}
 	}
 	
 	public static Result rate_hotel() {
-		return ok(rate_hotel.render());
+		if (session("vorname") == null){
+			return ok(rate_hotel.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(rate_hotel.render(username));
+		}
+	}
+		public static Result registration(){
+		int emailParameter = 0;
+		int agbParameter = 0;
+			if (session("vorname") == null){
+			return ok(registration.render("Guest", emailParameter, agbParameter));	
+		} else {
+			String username = session("vorname");
+			return ok(registration.render(username, emailParameter, agbParameter));
+		}
 	}
 	
-	public static Result registration() {
-		return ok(registration.render());
+	public static Result registration1(String email) {
+		String username;
+		if (session("vorname") == null){
+			username="Guest";			
+		} else {
+			username = session("vorname");
+		}
+		ArrayList<User> user = Model.sharedInstance.getUser();
+		boolean emailAdr = false;
+		int emailParameter = 0;
+		int agbParameter = 0;
+				
+		//if (agb.equals("akzeptiert")) {
+			if (email != null) {
+				for (int i = 0; i < user.size(); i++) {
+					if (user.get(i).getEmail().equals(email)) {
+						emailAdr = true;
+					}
+				}
+				
+				if (emailAdr == true) {
+					//User auffordern sich mit einer anderen Emailadresse zu registrieren
+					emailParameter = 1;
+				}else {
+					//User in Datenbank anlegen
+					emailParameter = 2;
+				}
+				
+			}else {
+				//User auffordern eine email anzugeben
+				emailParameter = 3;
+			}
+		/*}else {
+			//User auffordern agb's zu akzeptieren
+			agbParameter = 1;
+		}*/
+		
+		
+		return ok(registration.render(username, emailParameter, agbParameter));
 	}
 	
-	public static Result results_search_hotel() {
-		return ok(results_search_hotel.render());
+/*	public static Result registration() {
+		if (session("vorname") == null){
+			return ok(registration.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(registration.render(username));
+		}
+	}*/
+	
+/*	public static Result results_search_hotel() {
+		if (session("vorname") == null){
+			return ok(results_search_hotel.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(results_search_hotel.render(username));
+		}
+	}*/
+
+	public static Result results_search_hotel_fromHeader(String hotel){
+				String username;
+		if (session("vorname") == null){
+			username="Guest";			
+		} else {
+			username = session("vorname");
+		}
+		ArrayList<Hotel> ergebnis = Model.sharedInstance.getHotels(null, null, hotel, null);
+		int anzahl = ergebnis.size();
+		String test = hotel;
+		
+		return ok(results_search_hotel.render(username, anzahl, ergebnis, test));
+	}
+	
+	public static Result results_search_hotel(String land, String stadt, String hotel) {
+		String username;
+		if (session("vorname") == null){
+			username="Guest";			
+		} else {
+			username = session("vorname");
+		}
+		ArrayList<Hotel> ergebnis = Model.sharedInstance.getHotels(land, stadt, hotel, null);
+		//int anzahl = ergebnis.size();
+		
+		/*String test;
+		
+		if (hotel!=null) {
+			test = "leeere";
+		}else {
+			test = hotel;
+		}*/
+
+/*		Hotel test1 = new Hotel("12", "/assets/images/hotel_kn.jpg", "Konstanzia" ,"1111", "langer text aus kn", "llll", "llll", "bbbb", "ffff", "üüüü");
+		Hotel test2 = new Hotel("14", "/assets/images/hotel_rom.jpg", "Römerhaus", "1111", "noch längerer text aus rom", "llll", "llll", "bbbb", "ffff", "üüüü");
+		ArrayList<Hotel> ergebnis = new ArrayList<Hotel>();*/
+/*		ergebnis.add(test1);
+		ergebnis.add(test2);*/
+		int anzahl = ergebnis.size();
+		String test = "standard";
+		
+		return ok(results_search_hotel.render(username, anzahl, ergebnis, test));
+	}
+	
+	public static Result results_search_hotel_enhanced(String land, String stadt, String hotel, String verpflegung){
+		String username;
+		if (session("vorname") == null){
+			username="Guest";			
+		} else {
+			username = session("vorname");
+		}
+		ArrayList<Hotel> ergebnis = Model.sharedInstance.getHotels(land, stadt, hotel, verpflegung);
+		int anzahl = ergebnis.size();
+		String test = "enhanced " + verpflegung;
+		
+		return ok(results_search_hotel.render(username, anzahl, ergebnis, test));
 	}
 	
 	public static Result search_hotel() {
-		return ok(search_hotel.render());
+		if (session("vorname") == null){
+			return ok(search_hotel.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(search_hotel.render(username));
+		}
 	}
 	
 	public static Result welcome() {
-		return ok(welcome.render());
+		if (session("vorname") == null){
+			return ok(welcome.render("Guest"));	
+		} else {
+			String username = session("vorname");
+			return ok(welcome.render(username));
+		}
 	}
 	
+	/*
+	 * login.scala.html
+	 * Methode zur Überprüfung des Logins
+	 * programmiert von: tobias ; datum: 23.11.14 */
+	
+//	public String test(String email, String password){
+//			ArrayList<User> registrierteUser = Model.sharedInstance.getUser();
+//			String checkEmail = email;
+//			String checkPassword = password;
+//			for (User user : registrierteUser) {
+//				if (user.getEmail().equals(checkEmail)) {
+//					if (user.getPasswort().equals(checkPassword)) {
+////						session("username", "" + user.getVorname());
+//						return "User + PW sind korrekt!";
+//					}
+//					return "User existiert, PW ist falsch!";
+//				}
+//			}
+//			return "Account gibt es nicht!";
+//	}
+	
+	public static Result checkLogin(String email, String password) {
+		ArrayList<User> registrierteUser = Model.sharedInstance.getUser();
+		String checkEmail = email;
+		String checkPassword = password;
+		for (User user : registrierteUser) {
+			if (user.getEmail().equals(checkEmail)) {
+				if (user.getPasswort().equals(checkPassword)) {
+					session("vorname", "" + user.getVorname());
+					session("nachname", "" + user.getNachname());
+					session("email", "" + user.getEmail());
+					session("geschlecht", "" + user.getGeschlecht());
+					session("familienstand", "" + user.getFamilienstand());
+					session("alter", "" + user.getAlter());
+					return redirect("welcome.scala.html");
+				}
+				return redirect("login.scala.html");
+			}
+		}
+		return badRequest("test");
+	}
 }

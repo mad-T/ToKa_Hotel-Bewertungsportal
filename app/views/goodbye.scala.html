@@ -1,8 +1,16 @@
-@main("Tschö") {
+@(userVorname: String)
+@main("Tschö")(userVorname) {
 <div class="row">
 	<div class="col-md-12">
 		<div class ="container-fluid">
-			<h1>Tschüss ...Name... ! Bis zum nächsten mal !</h1>
+			<h1>Tschüss @userVorname ! Bis zum nächsten mal !</h1>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<div class ="container-fluid">
+			<h2>Hier geht's zur <a class "toka_weisserText" href="index.scala.html">Startseite</a> !</h2>
 		</div>
 	</div>
 </div>
