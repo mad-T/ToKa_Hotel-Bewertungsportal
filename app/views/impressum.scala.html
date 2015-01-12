@@ -1,0 +1,27 @@
+@(userVorname: String)
+@main("Impressum")(userVorname)("2") {
+<div class="row">
+	<div class="col-md-12">
+		<div class="container-fluid">
+			<h2>Unternehmen</h2>
+			<h4>ToKa GmbH</h4>
+			<i>Untere Laube<br/>
+			78462 Konstanz<br/>	
+			Telefon: +49 0176 00000010<br/>
+			<div id="toka_emailLine">
+				<a href="mailto:toka@@mail.de">
+					<div id="toka_emailIcon">
+						<img src=@routes.Assets.at("images/brief-icon1.png")>
+						toka@@mail.de</a></i>
+					</div>
+			</div>
+
+			<div class="toka_paragraph"></div>
+
+			<h2>Haftungshinweis</h2>
+			<p>Trotz sorgfältiger inhaltlicher Kontrolle übernehmen wir keine Haftung für die Inhalte externer Links. 
+			Für den Inhalt der verlinkten Seiten sind ausschließlich deren Betreiber verantwortlich.</p>
+		</div>
+	</div>
+</div>
+}
