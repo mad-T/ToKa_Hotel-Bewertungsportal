@@ -1,0 +1,45 @@
+@(userVorname: String, anzahl: Int, hotels:List[models.Hotel], titelbilder:List[models.Bild])
+@main("Suchergebnis")(userVorname)("2") {
+	<div class="row">
+		<div class="col-md-12">
+			<div class="container-fluid">
+				<h1>Ergebnis Ihrer Suche:</h1>
+				<div class="toka_paragraph"></div>
+				@if(anzahl == 1){
+					<h4>Es wurde @anzahl Hotel gefunden:</h4>
+				}else{
+					<h4>Es wurden @anzahl Hotels gefunden:</h4>	
+				}
+				<div class="toka_paragraph"></div>											
+				<div class="toka_paragraph"></div>	
+			</div>
+		</div>
+	</div>
+
+	@for(hotel <- hotels) {
+	<div class="row">
+		<div class="col-md-3">
+			<div class="container-fluid">
+				@for(titelbild <- titelbilder) {
+					@if(hotel.getId() == titelbild.getFk_Hotel()){
+					<a href="information_1hotel.scala.html?name=@hotel.getName()">
+						<img src=@titelbild.getPfad() alt="Kein Titelbild vorhanden" width = "250" height = "175"></img>
+					</a>
+					}
+				}
+			</div>
+		</div>
+		<div class="col-md-9">
+			<div class="container-fluid">
+				<a href="information_1hotel.scala.html?name=@hotel.getName()">
+					@hotel.getName() - 	@hotel.getKurzbeschreibung()<br>
+					@hotel.getLangtext()
+				</a>
+			</div>
+		</div>
+	</div>
+	@if(hotel != hotels.get(hotels.size()-1)) {
+		<div id="toka_line-separator"></div>
+		}
+	}	
+}

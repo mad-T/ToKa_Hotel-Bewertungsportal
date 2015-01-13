@@ -1,0 +1,310 @@
+﻿ /*! -- ToKa Layout */
+ body{
+	background-image: url(../images/hintergrund_trans.jpg);
+    background-attachment:fixed;
+    color: #102E65;
+ }
+
+a {
+    color: #fff; /* o. dunkles blau #102E65 */ 
+}
+
+.toka_paragraph {
+    padding-top: 20px;
+}
+
+#toka_emailLine {
+    width: 150px;
+}
+
+#toka_emailIcon {
+    padding-right: 5px;
+}
+
+/* -- ToKa-Form-Elements */
+ .toka_textfelder {
+    width: 300px;
+}
+
+ .toka_textarea {
+    width: 80%;
+ }
+ 
+/* ToKa-Wrapper */
+#toka_siteWrapper { 
+width: 100%;
+max-width: 1180px;
+padding-left: 0%;
+padding-right: 0%;
+margin: 20px auto;
+overflow: hidden;
+box-shadow: 0px 5px 40px 5px #252525;
+/*background: -moz-linear-gradient(left center , #4FB7D7 0px, #81DAF5 80%) repeat scroll 0% 0% transparent;*/
+position: relative;
+}
+
+.toka_wrapper {
+    margin: 0px auto;
+    padding: 0px 10px 0px 6px;
+    max-width: 90%;
+}
+
+/* ToKa-Header */
+#toka_header{
+    padding-top: 2em;
+    padding-bottom:2em;
+    display: block;
+    min-height: 200px;
+}
+
+.toka_headerInside{
+    max-width: 1180px;
+    margin: 0px auto;
+    padding: 0px 20px;
+    position: relative;
+}
+
+.toka_headerLinks{
+    float: left;
+    margin-left: 10px;
+    padding-top: 5px;
+    margin-right: 4.7em;
+    font-size: 0.9em;
+    display: block;
+}
+
+.toka_headerSearch{
+    float: left;
+    margin-left: 10px;
+    color: #fff;
+    margin-right: 2.0em;
+    font-size: 0.8em;
+    display: block;
+}
+
+.toka_navbar-center {
+    float: left !important;
+    padding-top: 50px;
+    padding-right: 20px; /* abstand zu navbar-right*/
+    text-transform: uppercase;
+    font-size: 1.5em;
+    letter-spacing: 0.2em;
+  } 
+
+/* ToKa-Header bootstrap customized */
+.navbar-inverse {
+  background-color: transparent;
+  border-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-brand {
+  float: left;
+  height: 200px;
+  padding: 0px 90px 15px 15px;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
+    background-color: #fff; /*to-do: farbe abändern */
+}
+
+/* platzierung des toggles */
+.navbar-toggle {
+    margin-top: 30px;
+    margin-right: -26px;
+}
+
+.navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #FFF;
+}
+
+/* farbe der links in der nav */
+.navbar-inverse .navbar-nav > li > a {
+    color: #102E65;
+}
+
+/* maus über die link in der nav */
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus {
+  color: #fff;
+}
+
+/* farbe link fuer aktives element in der nav */
+.navbar-inverse .navbar-nav > .toka_active > a{
+    color: #102E65;
+}
+
+/* farbe hover ueber link fuer aktives element in der nav */
+.navbar-inverse .navbar-nav > .toka_active > a:hover {
+    color: #fff;
+} 
+
+/* nur notwendig, wenn active gesetzt wird */
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+  color: #000;
+  background-color: transparent;
+}
+
+/* farbe für toggle, wenn mit maus drüber */
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: #81DAF5;
+}
+
+/* ToKa-Footer */
+#toka_footer{
+    padding-top: 4em;
+    padding-bottom:2em;
+    display: block;
+    min-height: 100px;
+}
+
+#toka_footerBorder{
+    padding-top: 2em;
+    border: 1px solid;
+    border-width: 1px 0px 0px;
+    border-color: #fff;
+}
+
+#toka_footerLeft{
+    float: left;
+    font-size: 1.0em;
+    letter-spacing: 0.3em;
+    padding-right: 30px;
+}
+
+#toka_footerLeft > a {
+    color: #102E65;
+}
+
+#toka_footerLeft > a:hover {
+    color: #fff;
+}
+
+#toka_footerRight{
+    float: right;
+}
+
+#toka_footerRight > a {
+    color: #102E65;
+}
+
+#toka_footerRight > a:hover {
+    color: #fff;
+}
+
+#toka_footerBottom{
+    float:right;
+    padding-top: 2.0em;
+    padding-right: 2.0em;
+    font-size: 0.8em;
+}
+
+/* ToKa-Login pop-over */
+
+.modal-body .form-control {
+    width: 250px;
+}
+
+.modal-body > form > a {
+    color: #fff;
+    font-size: 0.8em;
+}
+
+/* position der login-box im header */
+.modal.in .modal-dialog {
+    transform: translate(0px , 0px);
+}
+
+/* größe der box */
+.modal-dialog {
+    margin: 30px auto;
+    width: 360px;
+}
+
+/*u.a. hintergrundfarbe der box*/
+.modal-content {
+    position: relative;
+    /*background-color: #4FB7D7;*/
+    background-color: transparent;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    outline: 0px none;
+    box-shadow: 0px 3px 9px rgba(0, 0, 0, 0.5);
+}
+
+/* anmelde-button */'
+.btn .btn-primary {
+    color: #FFF;
+    background-color: rgba(104, 178, 242, 1);
+    border-color: #357EBD;
+}
+
+/* border weiß machen, wenn hintergrund blau */
+.modal-header {
+    min-height: 0px;
+    padding: 15px;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+/* border weiß machen, wenn hintergrund blau */
+.modal-footer {
+    padding: 15px;
+    text-align: right;
+    border-top: 1px solid #fff;
+}
+
+/* ToKa Index - CSS fuer Erste Row 2 Spalte +Nein, dann los+ */
+#toka_indexTopRowCenter {
+    padding-top: 60px;
+}
+
+.navbar-form {
+    padding: 10px 0px;
+}
+
+/* Toka - Bootstrap Chechboxen und Radiobuttons */
+.checkbox label {
+    padding-right: 10px;
+    min-width: 140px;
+}
+
+.radio-inline {
+    min-width: 135px;
+    padding-right: 10px;
+}
+
+.checkbox input[type="checkbox"] {
+    margin-left: 0px;
+}
+
+/* ToKa Header - Alert Falsches Passwort */
+.toka_alert-danger {
+    color: #A94442;
+    background-color: #F2DEDE;
+    border-color: #EBCCD1;
+    max-width: 70.5%;
+}
+
+/* ToKa Line-Separator */
+#toka_line-separator {
+    margin-bottom: 2em;
+    margin-top: 2em;
+    border: 1px solid;
+    border-width: 1px 0px 0px;
+    border-color: #fff;
+}
+
+/* ToKa Bootstrap Alert für Info bei Rate & Registration */
+.alert {
+    max-width: 22em;
+}
