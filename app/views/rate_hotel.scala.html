@@ -32,78 +32,76 @@
 							@for(hotel <- hotels){
 								<option value="@hotel.getName()">@hotel.getName()</option>
 							}
-						</select><br>
+						</select><br/>
 						<p>Art</p>
 						<select class="form-control toka_textfelder" name="artUrlaub">
 							<option value="F">Familien Urlaub</option>
 							<option value="S">Single Urlaub</option>
 							<option value="P">Party Urlaub</option>
 							<option value="K">Kultur Urlaub</option>
-						</select><br>
+						</select><br/>
 						<p>Kindergeeignet</p>
 						<select class="form-control toka_textfelder" name="kinder">
 							<option value="J">Ja</option>
 							<option value="N">Nein</option>
-						</select><br>
+						</select><br/>
 						<p>Verpflegung</p>
 						<select class="form-control toka_textfelder" name="verpflegung">
 							<option value="AI">All Inclusive</option>
 							<option value="V">Vollpension</option>
 							<option value="H">Halbpension</option>
 							<option value="N">Nichts</option>
-						</select><br>
+						</select><br/>
 						<p>Von</p>
-						<input type="date" class="form-control toka_textfelder" name="von" placeholder="von" required><br>
+						<input type="date" class="form-control toka_textfelder" name="von" placeholder="von" required><br/>
 						<p>Bis</p>
-						<input type="date" class="form-control toka_textfelder" name="bis" placeholder="bis" required><br>
+						<input type="date" class="form-control toka_textfelder" name="bis" placeholder="bis" required><br/>
 						<p>Rating</p>
+						<input id="input-21b" value="0" type="number" class="rating" min=0 max=5 step=1 data-size="md">
 						<script>
-						function sterneAusgeben(wert){
-							switch(wert) {
-									case 1:
-										var text = "Eine Sonne";
-										break;
-									case 2:
-										var text = "Zwei Sonnen";
-										break;
-									case 3:
-										var text = "Drei Sonnen";
-										break;
-									case 4:
-										var text = "Vier Sonnen";
-										break;
-									case 5:
-										var text = "Fünf Sonnen";
-										break;
-								}		
-						document.getElementById("sterne").innerHTML = text;
-						}
+						    jQuery(document).ready(function () {
+						        $("#input-21f").rating({
+						            starCaptions: function(val) {
+						                if (val < 3) {
+						                    return val;
+						                } else {
+						                    return 'high';
+						                }
+						            },
+						            starCaptionClasses: function(val) {
+						                if (val < 3) {
+						                    return 'label label-danger';
+						                } else {
+						                    return 'label label-success';
+						                }
+						            },
+						            hoverOnClear: false
+						        });
+						        
+						        $('#rating-input').rating({
+						              min: 0,
+						              max: 5,
+						              step: 1,
+						              size: 'lg'
+						           });
+						           
+						        $('#btn-rating-input').on('click', function() {
+						            var $a = self.$element.closest('.star-rating');
+						            var chk = !$a.hasClass('rating-disabled');
+						            $('#rating-input').rating('refresh', {showClear:!chk, disabled:chk});
+						        });
+						        
+						        $('#rating-input').on('rating.change', function() {
+						            alert($('#rating-input').val());
+						        });
+						        
+						        
+						        $('.rb-rating').rating({'showCaption':true, 'stars':'3', 'min':'0', 'max':'3', 'step':'1', 'size':'xs', 'starCaptions': {0:'status:nix', 1:'status:wackelt', 2:'status:geht', 3:'status:laeuft'}});
+						    });
 						</script>
 						
-						<div class="starRating">
-						  <div>
-						    <div>
-								<div>
-									<div>
-									  <input id="rating1" type="radio" name="rating" value="1" onclick="sterneAusgeben(1)">
-									  <label for="rating1"><span>1</span></label>
-									</div>
-									<input id="rating2" type="radio" name="rating" value="2" onclick="sterneAusgeben(2)">
-									<label for="rating2"><span>2</span></label>
-								</div>
-								  <input id="rating3" type="radio" name="rating" value="3" onclick="sterneAusgeben(3)">
-								  <label for="rating3"><span>3</span></label>
-							</div>
-						    <input id="rating4" type="radio" name="rating" value="4" onclick="sterneAusgeben(4)">
-						    <label for="rating4"><span>4</span></label>
-						  </div>
-						  <input id="rating5" type="radio" name="rating" value="5" onclick="sterneAusgeben(5)">
-						  <label for="rating5"><span>5</span></label></br>
-						</div>
-						<div id="sterne"></div></br>
-						
 						<p>Kurzer Kommentar</p>
-						<input type="text" class="form-control toka_textfelder" name="kurzkommentar" placeholder="gut/schlecht war ..." maxlength="35"><br>
+						<input type="text" class="form-control toka_textfelder" name="kurzkommentar" placeholder="gut/schlecht war ..." maxlength="35"><br/>
 						<p>Beschreibung</p>
 						<p><textarea class="form-control toka_textarea" name="beschreibung" placeholder="Beschreibung"  cols="100" rows="10"></textarea></p>
 
@@ -176,7 +174,7 @@
 	<div class="col-md-1"></div>
 	<div class="col-md-4">
 		<h4>
-			Ist Ihr Hotel nicht dabei?<br><small>Füllen Sie <a href="newHotel.scala.html">dieses</a> Formular aus. Nach Prüfung auf Gültigkeit wird das Hotel von einem unserer Administratoren angelegt.</small>
+			Ist Ihr Hotel nicht dabei?<br/><small>Füllen Sie <a href="newHotel.scala.html">dieses</a> Formular aus. Nach Prüfung auf Gültigkeit wird das Hotel von einem unserer Administratoren angelegt.</small>
 		</h4>
 	</div>
 	<div class="col-md-1"></div>
