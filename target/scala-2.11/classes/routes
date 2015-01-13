@@ -1,0 +1,52 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     	/					                    controllers.Application.index()
+GET			/index.scala.html						controllers.Application.index()
+GET			/contact.scala.html						controllers.Application.contact()
+GET			/goodbye.scala.html						controllers.Application.goodbye()
+GET			/agbs.scala.html						controllers.Application.agbs()
+GET			/impressum.scala.html					controllers.Application.impressum()
+GET			/information_1hotel.scala.html			controllers.Application.information_1hotel(name)
+GET			/profile.scala.html						controllers.Application.profile()
+GET			/rate_hotel.scala.html					controllers.Application.rate_hotel()
+GET			/rate_hotel_fromHotel					controllers.Application.rate_hotel_fromHotel(name)
+GET			/rate_hotel								controllers.Application.rate_hotel()
+GET			/registration.scala.html				controllers.Application.registration()
+GET			/results_search_hotel.scala.html		controllers.Application.results_search_hotel(land, stadt, hotel)
+GET			/hotel_enhancedSearch.scala.html		controllers.Application.hotel_enhancedSearch()
+GET			/welcome.scala.html						controllers.Application.welcome()
+GET			/newHotel.scala.html					controllers.Application.newHotel()
+GET			/allRates.scala.html					controllers.Application.allRates(hotel, id)
+
+### ToKa Actions ###
+
+# Login überprüfen
+POST		/checkLogin								controllers.Application.checkLogin
+GET			/checkLogin								controllers.Application.registration()
+
+# Logout
+GET			/logout									controllers.Application.goodbye()
+
+# Hotelsuche aus dem Header
+GET			/results_hotel_headerSearch				controllers.Application.results_hotel_headerSearch(hotel)
+
+# Hotelsuche aus dem Body (erweiterte Suche)
+GET			/results_hotel_enhancedSearch			controllers.Application.results_hotel_enhancedSearch(land, stadt, hotel, verpflegung, pool, strand, zentrum, fahrrad)
+
+# Registrierung beim submitten
+POST		/registration_submit					controllers.Application.registration_submit
+
+# Rate Hotel
+POST		/rate_hotel								controllers.Application.rate_hotel_submit
+
+# Ajax für Hotel-Suchvorschläge
+GET			/ajax_complete							controllers.Application.ajax_complete(hotel)
+
+# Websocket: RecentlyRate
+GET			/recentlyRate							controllers.Application.recentlyRate()
+
+# Map static resources from the /public folder to the /assets URL path
+GET 	    /assets/*file               			controllers.Assets.at(path="/public", file)
