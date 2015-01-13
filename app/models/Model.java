@@ -1,4 +1,4 @@
-package models;
+﻿package models;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -647,6 +647,7 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
 	        				pstmt.setString(6, "null");
 	        				pstmt.executeUpdate();
 					}
+				pfade.clear();
 				}
         		if(countObservers()>0){
         			setChanged();
@@ -684,37 +685,38 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
 					pfad = Model.sharedInstance.createPicture(picture, "user");
 				}
 			}
-
-			if (pfad != null) {
+		
+			try {
+				tokaConnection = DBAccess.getConnection();
+				ResultSet rs = null;
+				String query = "SELECT b.ID FROM Bild b WHERE b.Beschreibung LIKE '%User-Pic%' ORDER BY b.ID desc limit 1;";
+				PreparedStatement pstmt = tokaConnection.prepareStatement(query);
 				try {
-					tokaConnection = DBAccess.getConnection();
-					ResultSet rs = null;
-					String query = "SELECT b.ID FROM Bild b WHERE b.Beschreibung LIKE '%User-Pic%' ORDER BY b.ID desc limit 1;";
-					PreparedStatement pstmt = tokaConnection.prepareStatement(query);
-					try {
-						rs = pstmt.executeQuery();
-						int id = 1; 
-						while (rs.next()) {
-							id = Integer.parseInt(rs.getString("ID"));
-							id = id + 1;
-						}
-						String beschreibung = "User-Pic " + vorname;
-						String insertUserPicQuery = "INSERT INTO Bild (ID, Beschreibung, Pfad, FK_Hotel, FK_Bewertung, FK_User) VALUES ("
-							+ "?,?,?,?,?,?);";
-							pstmt = tokaConnection.prepareStatement(insertUserPicQuery);
-	        				pstmt.setInt(1, id);
-	        				pstmt.setString(2, beschreibung);
-	        				pstmt.setString(3, pfad);
-	        				pstmt.setString(4, "null");
-	        				pstmt.setString(5, "null");
-	        				pstmt.setString(6, email);
-							pstmt.executeUpdate();
-					} finally {
-						try { rs.close(); pstmt.close();} catch (Exception ignore) {}
+					rs = pstmt.executeQuery();
+					int id = 1; 
+					while (rs.next()) {
+						id = Integer.parseInt(rs.getString("ID"));
+						id = id + 1;
 					}
+					if (pfad == null){
+						pfad = "null";
+					}
+					String beschreibung = "User-Pic " + vorname;
+					String insertUserPicQuery = "INSERT INTO Bild (ID, Beschreibung, Pfad, FK_Hotel, FK_Bewertung, FK_User) VALUES ("
+						+ "?,?,?,?,?,?);";
+						pstmt = tokaConnection.prepareStatement(insertUserPicQuery);
+        				pstmt.setInt(1, id);
+        				pstmt.setString(2, beschreibung);
+        				pstmt.setString(3, pfad);
+        				pstmt.setString(4, "null");
+        				pstmt.setString(5, "null");
+        				pstmt.setString(6, email);
+						pstmt.executeUpdate();
 				} finally {
-					try { tokaConnection.close(); } catch (Exception ignore) {}
+					try { rs.close(); pstmt.close();} catch (Exception ignore) {}
 				}
+			} finally {
+				try { tokaConnection.close(); } catch (Exception ignore) {}
 			}
 		}
 
@@ -1109,30 +1111,28 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
 
 	public static String[] getSessionData(String email) throws SQLException {
 		String[] userDataArray = new String[7];
-
 		try {
 	      	tokaConnection = DBAccess.getConnection();
-	      	String query = "SELECT u.Email, u.Vorname, u.Nachname, u.Geburtstag, u.Geschlecht, u.Familienstand, b.Pfad FROM User u, Bild b WHERE Email = '" + email + "'AND b.FK_User = u.Email;";
-	        ResultSet rs = null;
-	        PreparedStatement pstmt = tokaConnection.prepareStatement(query);
+	        PreparedStatement pstmt = tokaConnection.prepareStatement("SELECT u.Email, u.Vorname, u.Nachname, u.Geburtstag, u.Geschlecht, u.Familienstand, b.Pfad FROM User u, Bild b WHERE Email = ? AND b.FK_User = u.Email;");
+	        pstmt.setString(1, email);
+           	ResultSet rs = pstmt.executeQuery();
 	        try {
-	            rs = pstmt.executeQuery();
 		        while (rs.next()) {
-		       	userDataArray[0] = rs.getString("Email");
-		       	userDataArray[1] = rs.getString("Vorname");
-		       	userDataArray[2] = rs.getString("Nachname");
-		       	userDataArray[3] = rs.getString("Geburtstag");
-		       	userDataArray[4] = rs.getString("Geschlecht");
-		       	userDataArray[5] = rs.getString("Familienstand");
-		       	userDataArray[6] = rs.getString("Pfad");
-		     	}       
+			       	userDataArray[0] = rs.getString("Email");
+			       	userDataArray[1] = rs.getString("Vorname");
+			       	userDataArray[2] = rs.getString("Nachname");
+			       	userDataArray[3] = rs.getString("Geburtstag");
+			       	userDataArray[4] = rs.getString("Geschlecht");
+			       	userDataArray[5] = rs.getString("Familienstand");
+			       	userDataArray[6] = rs.getString("Pfad");
+		     		}        
 	        } finally {
 	            try { rs.close(); pstmt.close(); } catch (Exception ignore) {}
 	        }
 	    } finally {
 	        try { tokaConnection.close(); } catch (Exception ignore) {}
 	    }
-
+	    System.out.println(userDataArray[0] + userDataArray[1] + userDataArray[2] + userDataArray[3] + userDataArray[4] + userDataArray[5] + userDataArray[6]);
 		return userDataArray;
 	}
 
