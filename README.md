@@ -1,17 +1,17 @@
 Projektdokumentation Web-Technologie
-===============
-------------------
+===
+---
 
 Gruppe 3 | #
--------- | 
+--- | 
 | *Projekt*: | ToKa Hotel-Bewertungsportal
 | *Bearbeiter:* | Kay Gamito & Tobias Spott
 
 
-------------------
+---
 
 Gliederung
--------------
+---
 1 Spezifikation
 : 1.1 Projekt
 : 1.2 Funktionen
@@ -34,16 +34,16 @@ Gliederung
 4 Quellen
 : bla
 
------------------
+---
 
 1 Spezifikation
-------------
+---
 2 Umsetzung
-------------
+---
 3 Fazit
-------------
+---
 4 Quellen
-------------
+---
 
 
 
