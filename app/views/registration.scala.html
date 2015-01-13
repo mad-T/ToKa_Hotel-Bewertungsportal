@@ -1,0 +1,112 @@
+@(userVorname: String, emailPar: Int, loginStatusCode: String)
+@main("Registrieren")(userVorname)("-2") {
+<div class="row">
+	<div class="col-md-12">
+		<div class="container-fluid">
+			@if(emailPar == 1){
+				<div class="alert alert-danger" role="alert">Die eMail-Adresse ist bereits vorhanden. Bitte wählen Sie eine andere.</div>
+				<div class="toka_paragraph"></div>
+			}
+			@if(emailPar == 2){
+				<div class="alert alert-success" role="alert">Ihr User wurde erfolgreich angelegt!</div>
+				<div class="toka_paragraph"></div>
+			}
+			@if(loginStatusCode == "-1") {
+				<div class="alert alert-danger" role="alert">Der User ist nicht vorhanden. Hier können Sie sich einen User anlegen</div>
+				<div class="toka_paragraph"></div>
+			}
+			<h1>Registrieren</h1>
+			<div class="toka_paragraph"></div>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<div class="container-fluid">
+			<form method="POST" action="registration_submit" enctype="multipart/form-data">						
+				<div class="form-group">
+					<input pattern="[a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]*([ ][a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]+)*" title="Bitte nur Buchstaben" class="form-control toka_textfelder" placeholder="Vorname" name="vorname" autofocus></br>
+					<input pattern="[a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]*([ ][a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]+)*" title="Bitte nur Buchstaben" class="form-control toka_textfelder" placeholder="Nachname" name="nachname"></br>
+					<input class="form-control toka_textfelder" placeholder="Geburtstag" type="date" name="geburtstag"></br>
+								
+					<p>Geschlecht</p>
+					<select class="form-control toka_textfelder"  name="geschlecht">
+						<option value="m">männlich</option>
+						<option value="w">weiblich</option>
+					</select><br>
+					
+					<p>Familienstand<p/>
+					<select class="form-control toka_textfelder"  name="familienstand">
+						<option value="ld">ledig</option>
+						<option value="vh">verheiratet</option>
+						<option value="gt">getrennt</option>
+						<option value="gs">geschieden</option>
+						<option value="vw">verwitwet</option>
+					</select><br>
+					<script>
+					function passwortCheck(){
+						 var pw = document.getElementById("pw").value;
+						 var pw_wdh = document.getElementById("pw_wdh").value;
+						
+						 //if(pw_wdh != null){
+							 if(pw != pw_wdh){
+							  alert("Die PasswÃ¶rter sind nicht gleich, bitte versuchen Sie es nochmal!");
+							  document.getElementById("pw_wdh").value = "";
+							 }
+						 //}
+
+					}
+					</script>
+					
+					<input pattern="[a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]*([ ][a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]+)*[.]?[ ]?[1-9][0-9]?[a-zA-Z]?" title="Buchstaben Zahl" class="form-control toka_textfelder" placeholder="Strasse" name="strasse"></br>
+					<input pattern="[a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]*([ ][a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]+)*" title="Bitte nur Buchstaben" class="form-control toka_textfelder" placeholder="Ort" name="ort"></br>
+					<input pattern="[0-9]{5}" title="fünfstellige Postleitzahl" class="form-control toka_textfelder" placeholder="Postleitzahl" name="plz"></br>
+					<input pattern="[a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]*([ ][a-zA-Z&ouml&Ouml&uuml&Uuml&auml&Auml&szlig]+)*" title="Bitte nur Buchstaben" class="form-control toka_textfelder" placeholder="Land" name="land"></br>
+					<input class="form-control toka_textfelder" placeholder="Passwort" type="password" name="passwort" required="required" id="pw"></br>
+					<input class="form-control toka_textfelder" placeholder="Passwort wiederholen" type="password" name="passwort_wdh" required="required" onblur="passwortCheck()" id="pw_wdh"></br>
+					<input class="form-control toka_textfelder" placeholder="eMail" type="text" name="email" required="required"></br>
+					<p><a href=# data-toggle="modal" data-target="#agbModal">AGB's</a> akzeptieren</p>
+					<label for="akzeptiert">stimme zu</label>
+					<input type="checkbox" name="agb" id="akzeptiert" value="akzeptiert" required="required">
+					<!-- Modal -->
+					<div class="modal fade" id="agbModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					  <div class="modal-dialog">
+					    <div class="modal-content">
+					      <div class="modal-header">
+					        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					        <h4 class="modal-title" id="myModalLabel">ToKa AGBs</h4>
+					      </div>
+					      <div class="modal-body">
+							<h1>AGBs</h1>
+							<div class="toka_paragraph"></div>
+							<p><i>Unsere Seite dient ausschließlich als Informationsquelle für die bessere Planungsentscheidung Ihres nächsten Hotelbesuches. Innerhalb unserer Web-Präsenz kommt es zu keinem Zeitpunkt zu einem Vertragsabschluss. <br>
+							AGBs sind in diesem Sinne keine definiert.</i></p>
+					      </div>
+					      <div class="modal-footer">
+					        <button type="button" class="btn btn-default" data-dismiss="modal">Schließen</button>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+				  	<br>      
+					<button type="submit" class="btn btn-default">Abschicken</button>
+				</div>
+		</div>
+	</div>
+	<div class="col-md-2"></div>
+	<div class="col-md-6">
+		<div class="container-fluid">
+			<img src=@routes.Assets.at("images/platzhalter.jpg") alt="Profilbild">
+			<input name="picture" type="file" size="50" accept="jpg/*" id="upload">
+			<div class="row">
+					<div class="col-md-12" id="preview">
+						<div class="container-fluid" >
+						<!-- Hier erscheinen die Vorschaubilder -->
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+	</form>
+</div>
+}
