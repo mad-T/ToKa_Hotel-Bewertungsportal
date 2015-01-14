@@ -1,4 +1,4 @@
-﻿package models;
+package models;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -624,30 +624,32 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
         				pstmt.setInt(11, hotelID);
 		        		pstmt.executeUpdate();
 		        		validRate = 1;
-		        for (int i = 0 ; i < pfade.size() ; i++) {
-		        	String biIDRateQuery = "SELECT b.ID FROM Bild b WHERE b.Beschreibung LIKE '%Hotelbewertung%' ORDER BY b.ID desc limit 1;";
-		        	pstmt = tokaConnection.prepareStatement(biIDRateQuery);
-		        	rs = pstmt.executeQuery();
-		        	int biIDRate = 1;
-		        	while (rs.next()) {
-		        		biIDRate = Integer.parseInt(rs.getString("ID"));
-		        		biIDRate = biIDRate + 1;
-		        	}
-		        	String pfad1 = pfade.get(i);
-	        		if (pfad1 != null) {
-	        		String rateBildbeschreibung = "Hotelbewertung für HotelID " + hotelname;  
-	                String insertRatePicQuery = "INSERT INTO Bild (ID, Beschreibung, Pfad, FK_Hotel, FK_Bewertung, FK_User) VALUES ("
-	                		+ "?,?,?,?,?,?)";
-							pstmt = tokaConnection.prepareStatement(insertRatePicQuery);
-	        				pstmt.setInt(1, biIDRate);
-	        				pstmt.setString(2, rateBildbeschreibung);
-	        				pstmt.setString(3, pfad1);
-	        				pstmt.setString(4, "null");
-	        				pstmt.setInt(5, id);
-	        				pstmt.setString(6, "null");
-	        				pstmt.executeUpdate();
+		        if(body != null) {
+			        for (int i = 0 ; i < pfade.size() ; i++) {
+			        	String biIDRateQuery = "SELECT b.ID FROM Bild b WHERE b.Beschreibung LIKE '%Hotelbewertung%' ORDER BY b.ID desc limit 1;";
+			        	pstmt = tokaConnection.prepareStatement(biIDRateQuery);
+			        	rs = pstmt.executeQuery();
+			        	int biIDRate = 1;
+			        	while (rs.next()) {
+			        		biIDRate = Integer.parseInt(rs.getString("ID"));
+			        		biIDRate = biIDRate + 1;
+			        	}
+			        	String pfad1 = pfade.get(i);
+		        		if (pfad1 != null) {
+		        		String rateBildbeschreibung = "Hotelbewertung für HotelID " + hotelname;  
+		                String insertRatePicQuery = "INSERT INTO Bild (ID, Beschreibung, Pfad, FK_Hotel, FK_Bewertung, FK_User) VALUES ("
+		                		+ "?,?,?,?,?,?)";
+								pstmt = tokaConnection.prepareStatement(insertRatePicQuery);
+		        				pstmt.setInt(1, biIDRate);
+		        				pstmt.setString(2, rateBildbeschreibung);
+		        				pstmt.setString(3, pfad1);
+		        				pstmt.setString(4, "null");
+		        				pstmt.setInt(5, id);
+		        				pstmt.setString(6, "null");
+		        				pstmt.executeUpdate();
+						}
+					pfade.clear();
 					}
-				pfade.clear();
 				}
         		if(countObservers()>0){
         			setChanged();
@@ -1355,13 +1357,13 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
 		+ "`Erfassungsdatum`	TEXT,"
 		+ "`FK_Hotel`	INTEGER,"
 		+ "PRIMARY KEY(ID));"
-		+ "INSERT INTO `Bewertung` VALUES ('1','Ingesamt schöner Urlaub, war alles super und das essen ist auch lecker. Großes Angebot für Kinder','immer wieder gerne','F','J','AI','01.01.2015','04.01.2015','5','05.01.2015','1');"
-		+ "INSERT INTO `Bewertung` VALUES ('2','Das Hotel würden wir immer wieder aufs neue buchen. Jedoch ein Stern Abzug, da die Fußgängerzone in der Nacht nicht zu überhören ist.','freundliches personal, essen top','F','J','AI','03.01.2015','08.01.2015','4','12.01.2015','1');"
-		+ "INSERT INTO `Bewertung` VALUES ('3','Ich habe lediglich 2 Tage übernachtet und war nicht oft im Hotel. Das Zimmer war immer sauber und es gab ein großes Frühstücksbuffet','war nur ein kurzer Urlaub','F','J','AI','06.01.2015','08.01.2015','4','12.01.2015','1');"
-		+ "INSERT INTO `Bewertung` VALUES ('4','Man befindet sich mitten in der Stadt Konstanz und viele Geschäfte sind mit wenigen Gehminuten zu erreichen. Der Preis / Nacht ist völlig in Ordnung','gute Lage, Preis gerechtfertigt','F','J','AI','05.01.2015','09.01.2015','5','12.01.2015','1');"
-		+ "INSERT INTO `Bewertung` VALUES ('5','Zum übernachten reicht das Hotel völlig aus, aber für einen Familienurlaub ungeeignet','sehr altmodisches Hotel','K','J','HP','02.01.2015','06.01.2015','3','12.01.2015','3');"
-		+ "INSERT INTO `Bewertung` VALUES ('6','Für den Preis sehr schlechtes Essen bekommen. Fliegen haben sich um das Buffet herum gesammelt.','essen war richtig mies','S','J','HP','06.01.2015','08.01.2015','2','12.01.2015','3');"
-		+ "INSERT INTO `Bewertung` VALUES ('7','Dieses Hotel würden wir zum Party machen immer wieder buchen. Für Kinder überhaupt nicht geeignet. Das Hotel war besoffen','warn brutaler Absturz, Eskalation!','P','N','HP','09.01.2015','11.01.2015','4','12.01.2015','5');");
+		+ "INSERT INTO `Bewertung` VALUES ('1','Ingesamt schöner Urlaub, war alles super und das essen ist auch lecker. Großes Angebot für Kinder','immer wieder gerne','Familienurlaub','Ja','All-Inclusive','01.01.2015','04.01.2015','5','05.01.2015','1');"
+		+ "INSERT INTO `Bewertung` VALUES ('2','Das Hotel würden wir immer wieder aufs neue buchen. Jedoch ein Stern Abzug, da die Fußgängerzone in der Nacht nicht zu überhören ist.','freundliches personal, essen top','Familienurlaub','Ja','All-Inclusive','03.01.2015','08.01.2015','4','12.01.2015','1');"
+		+ "INSERT INTO `Bewertung` VALUES ('3','Ich habe lediglich 2 Tage übernachtet und war nicht oft im Hotel. Das Zimmer war immer sauber und es gab ein großes Frühstücksbuffet','war nur ein kurzer Urlaub','Familienurlaub','Ja','All-Inclusive','06.01.2015','08.01.2015','4','12.01.2015','1');"
+		+ "INSERT INTO `Bewertung` VALUES ('4','Man befindet sich mitten in der Stadt Konstanz und viele Geschäfte sind mit wenigen Gehminuten zu erreichen. Der Preis / Nacht ist völlig in Ordnung','gute Lage, Preis gerechtfertigt','Familien-Urlaub','Ja','All-Inclusive','05.01.2015','09.01.2015','5','12.01.2015','1');"
+		+ "INSERT INTO `Bewertung` VALUES ('5','Zum übernachten reicht das Hotel völlig aus, aber für einen Familienurlaub ungeeignet','sehr altmodisches Hotel','Kultur-Urlaub','Ja','Halbpension','02.01.2015','06.01.2015','3','12.01.2015','3');"
+		+ "INSERT INTO `Bewertung` VALUES ('6','Für den Preis sehr schlechtes Essen bekommen. Fliegen haben sich um das Buffet herum gesammelt.','essen war richtig mies','Single-Urlaub','Ja','Halbpension','06.01.2015','08.01.2015','2','12.01.2015','3');"
+		+ "INSERT INTO `Bewertung` VALUES ('7','Dieses Hotel würden wir zum Party machen immer wieder buchen. Für Kinder überhaupt nicht geeignet. Das Hotel war besoffen','warn brutaler Absturz, Eskalation!','Party-Urlaub','Nein','Halbpension','09.01.2015','11.01.2015','4','12.01.2015','5');");
 	}
 	rs.close();
 	rs = meta.getTables(null, null, "Adresse", null);
