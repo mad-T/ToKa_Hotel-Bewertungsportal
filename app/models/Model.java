@@ -199,7 +199,7 @@ public class Model extends Observable {
             PreparedStatement pstmt = null;
             ResultSet rs = null;
             try {
-            	String query = "SELECT h.Name, h.Kurzbeschreibung, sum(b.Rating) AS summe_Stars, bi.Pfad from Hotel h, Bewertung b, Bild bi where b.FK_Hotel = h.ID AND b.Von LIKE '%2015%' AND bi.FK_Hotel = h.ID AND bi.Pfad LIKE '%titelbild%' group by h.name order by sum(b.Rating) desc limit 6;";
+            	String query = "SELECT h.Name, h.Kurzbeschreibung, avg(b.Rating) AS summe_Stars, bi.Pfad from Hotel h, Bewertung b, Bild bi where b.FK_Hotel = h.ID AND b.Von LIKE '%2015%' AND bi.FK_Hotel = h.ID AND bi.Pfad LIKE '%titelbild%' group by h.name order by avg(b.Rating) desc limit 6;";
             	pstmt = tokaConnection.prepareStatement(query);
                 rs = pstmt.executeQuery();
                 while (rs.next()) {
@@ -624,7 +624,7 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
         				pstmt.setInt(11, hotelID);
 		        		pstmt.executeUpdate();
 		        		validRate = 1;
-		        if(body != null) {
+		        if (body != null) {
 			        for (int i = 0 ; i < pfade.size() ; i++) {
 			        	String biIDRateQuery = "SELECT b.ID FROM Bild b WHERE b.Beschreibung LIKE '%Hotelbewertung%' ORDER BY b.ID desc limit 1;";
 			        	pstmt = tokaConnection.prepareStatement(biIDRateQuery);
@@ -648,9 +648,9 @@ public ArrayList<Hotel> getHotels(String l, String s, String h, String verpflegu
 		        				pstmt.setString(6, "null");
 		        				pstmt.executeUpdate();
 						}
-					pfade.clear();
+						pfade.clear();
 					}
-				}
+				}	
         		if(countObservers()>0){
         			setChanged();
         			notifyObservers();

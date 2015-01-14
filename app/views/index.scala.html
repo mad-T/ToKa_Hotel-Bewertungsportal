@@ -25,7 +25,7 @@
 			<div id="toka_indexTopRowCenter">
 				<p class="text-center">
 				<h3>
-					Schon ihren letzten Hotelbesuch bewertet?<br><small>Nein ? - Dann <a href="rate_hotel.scala.html">los!!</small></a>
+					Schon ihren letzten Hotelbesuch bewertet?<br/><small>Nein ? - Dann <a href="rate_hotel.scala.html">los!!</small></a>
 				</h3>
 				</p>
 			</div>
@@ -44,9 +44,9 @@
 				var bewertungen = jsonObj.bewertungen;
 				
 				for (b in bewertungen){
-					html += '<p>Erfasst: ' + bewertungen[b].erfasst + '<br>' + 
-							"Hotelname: " + bewertungen[b].hotelname + "<br>" +
-							"Kommentar: " + bewertungen[b].kommentar + "<br>" +
+					html += '<p>Erfasst: ' + bewertungen[b].erfasst + '<br/>' + 
+							"Hotelname: " + bewertungen[b].hotelname + "<br/>" +
+							"Kommentar: " + bewertungen[b].kommentar + "<br/>" +
 							'<span class="label label-warning"><i>' + bewertungen[b].rating + ' Stars</i></span>'
 							//'<input id="input-21e" value=' + bewertungen[b].rating + ' type="number" class="form-control toka_textfelder rating" name="rating" min=0 max=5 step=1 data-size="xs" readonly></p>';
 				}
@@ -59,9 +59,9 @@
 					<div id="jsonDaten">
 						@for(bewertung <- bewertungen){
 						<p>	
-							Erfasst: @bewertung.getErfassungsDatum()<br>
-							Hotelname: @bewertung.getFk_Hotel()<br>
-							Kommentar: @bewertung.getKurzkommentar()<br>
+							Erfasst: @bewertung.getErfassungsDatum()<br/>
+							Hotelname: @bewertung.getFk_Hotel()<br/>
+							Kommentar: @bewertung.getKurzkommentar()<br/>
 							<input id="input-21e" value="@bewertung.getRating()" type="number" class="form-control toka_textfelder rating" name="rating" min=0 max=5 step=1 data-size="xs" readonly>
 						</p>
 						}
@@ -93,7 +93,8 @@
 					     				<a href="information_1hotel.scala.html?name=@hotel.getName()"><img src=@hotel.getTitelbild() alt=@hotel.getName()></img>
 					      				<div class="carousel-caption">
 					        				<h3>@hotel.getName()</h3>
-					        				<span class="label label-warning"><i>@hotel.getLangtext Stars</i></span>
+					        				<span class="label label-warning"><i>Durchschnitt Sterne</i></span>
+					        				<input id="input-21b" value="@hotel.getLangtext" type="number" class="rating" min=0 max=5 step=1 data-size="xs" readonly>
 					        			</a>
 					      				</div>
 					   				</div>
