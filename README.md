@@ -52,6 +52,10 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 
 ##### 3. Erste Ideen
 ###### Mock-Ups
+Im Folgenden 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgenden Link angeschaut werden.
+
+Link - [Mock-Ups Dropbox](https://www.dropbox.com/s/2yw0ym3atam1f7g/hotel-rating-platform_toka.pdf?dl=0)
+
 ![Index-Seite]
 (https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/mockup_index.jpg)
 
@@ -82,9 +86,9 @@ SQLite bietet die Möglichkeit, ein relationales Datenbanksystem zu erstellen un
 ###### JavaScript / jQuery
 Durch JavaScript wird es ermöglicht, interaktive Handlungen innerhalb einer HTML vorzunehmen.  JQuery ist eine dazu vordefinierte Java-Script-Bibliothek, die verschiedene Funktionen anbietet. In diesem Projekt wurde JQuery verwendet, um eine Bildvorschau zu erstellen wenn Bilder bei der Registrierung bzw. der Bewertung eines Hotels hochgeladen werden. JavaScript wurde verwendet, um die Felder Passwort und Passwort wiederholen nach der Eingabe auf Gleichheit zu überprüfen. JavaScript wurde außerdem für die Sonnen-Bewertungsskala eingesetzt.
 + rate_Hotel.scala.html 
-++	$('#upload').change(function(e))
-++ function previewImage(e)
-++	function sterneAusgeben(wert)
+$('#upload').change(function(e))
+function previewImage(e)
+function sterneAusgeben(wert)
 + registration.scala.html(function passwortCheck())
 
 ###### Ajax
@@ -93,7 +97,8 @@ Ajax bietet die Möglichkeit, Inhalte auf einer HTML Seite zu ändern, ohne die 
 +	routes (/ajax_complete)
 +	Application.java(public static Result ajax_complete)
 +	Model.java (public static String autoComplete)
-Anmerkung: Funktioniert erst wenn der zweite Buchstabe eingegeben wird oder der Fokus erneut in die schnellsuche gesetzt wird. Wurde in der Fragestunde untersucht und besprochen.
+
+> Hinweis: Funktioniert erst, wenn der zweite Buchstabe eingegeben wird oder der Fokus erneut in die Schnellsuche gesetzt wird. Wurde in der Fragestunde untersucht und besprochen.
 
 ###### Websockets / Oberserver Observable / JSON
 Websockets werden verwendet um eine Kommunikation zwischen Client und Server zu ermöglichen. Benötigt der Client nun neue Infos muss keine Aktualisierung der HTLM Seite stattfinden, sondern durch die geöffnete Websocket Verbindung, werden die Informationen automatisch vom Server empfangen und verwendet. Das Oberserver Pattern ermöglicht es Objekte zu registrieren, welche dadurch ständig Informationen  erhalten wenn sich etwas ändert. Somit muss nicht jedes Objekt einzeln benachrichtigt werden, sondern es werden alle auf einmal automatisch benachrichtigt. JSON ist ein Datenformat, welches es ermöglicht, Daten ohne Probleme zwischen verschiedenen Anwendungen hin und her zu schicken.
