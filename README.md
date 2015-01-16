@@ -113,8 +113,8 @@ Websockets werden verwendet, um eine Kommunikation zwischen Client und Server zu
 Diese drei Technologien wurden zusammen implementiert um folgendes Szenario abzubilden:
 Befinden sich mehrere User auf der Startseite der Website, erhalten diese alle Informationen darüber, welche  3 Hotels zuletzt bewertet wurden. Wird in dieser Zeit durch einen anderen User eine weitere Hotelbewertung angelegt, erhalten alle User automatisch eine Aktualisierung der kürzlich bewerteten Hotels, ohne das die Seite neu geladen werden muss.
 +	Routes (/recentlyRate)
-+	Index.scala.html (s. 33 – 58)
-+	Rate_hotel.scala.htlm (s.167 – 178)
++	Index.scala.html (Z. 33 – 58)
++	Rate_hotel.scala.htlm (Z. 167 – 178)
 +	Model.java (Die Klasse Model erbt von der Klasse Observable. Weiterhin wird in der Methode createHotelRate die Methode notfiyObserver aufgerufen. In der Methode createJSON werden sämtliche Informationen der Bewertungen in eine JSON Datei geschrieben.)
 +	Application (public static WebSocket<JsonNode> recentlyRate())
 +	HotelObserver.java
