@@ -35,7 +35,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 
 ###### Nicht-Funktional
 + Design / Responsive
-+ Slideshow für Anzeige beste Hotels Jahr 2015
++ Slideshow (Bootstrap) für Anzeige beste Hotels Jahr 2015
 + Star-Rating (Bootstrap)
 
 ###### Use-Case
@@ -67,12 +67,13 @@ Link - [Mock-Ups Dropbox](https://www.dropbox.com/s/2yw0ym3atam1f7g/hotel-rating
 Umsetzung
 ----------
 ###### HTML(5)
-HTML ist eine Sprache, um Webseiten zu strukturieren. HTML5 ist eine neue Version die zusätzliche Funktionen bietet. In unserem Projekt wurde unter anderem der Tag „pattern“ verwendet, um bei der Registrierung Eingabewerte einzuschränken. In der Hotelbewertung wurde der Tag „multiple“ verwendet, um einen Mehrfach-Upload von Bildern zu ermöglichen.
+HTML ist eine Sprache, um Webseiten zu strukturieren. HTML5 ist eine neue Version die zusätzliche Funktionen bietet. In unserem Projekt wurde unter anderem der Tag „pattern“ verwendet, um bei der Registrierung Eingabewerte einzuschränken. In der Hotelbewertung wurde der Tag „multiple“ verwendet, um einen Mehrfach-Upload von Bildern zu ermöglichen. Auch die Tags Header und Footer wurden für eine klare Struktur verwendet. Typischerweise befindet sich im Header die Hauptnavigation einer Website plus das Logo. Im Footer finden sich meißtens das Impressum, AGBs und eine Kontakt-Seite wieder.
 +	u.a registration.scala.html (pattern); 
 +	rate_hotel.scala.html (date, multiple, email)
++	main.scala.html (header & footer
 
 ###### CSS / Bootstrap / Responsive
-CSS ist eine Gestaltungssprache. Hiermit kann man das Design von HTML Seiten auslagern und anpassen. Bootstrap ist in diesem Zusammenhang ein Framework, welches vordefinierte Gestaltungsmöglichkeiten bzw. Klassen/IDs für CSS bietet. Jede HTML-Seite besitzt Design-Objekte von Bootstrap, aber auch "eigenes" CSS wurde geschrieben (public/stylesheets/toka_style). Es wurde auch das GRID-System zur Layout-Gestaltung von Bootstrap verwendet. Zudem wurde selbst ein Site-Wrapper für eine schönere und übersichtlicher Optik geschrieben. Auch Repsonsive war ein Thema. Responsive beschreibt das proportionale Anpassen der Website zur aktuellen Fenstergröße. Zur Umsetzung von Responsive wurde auch auf Bootstrap-Elemente zurückgegriffen. Im Header beispielsweise werden die Listenpunkte ab einer bestimmten Größe zu einem Toggle zusammengefasst. Weitere nennenswerte Design-Objekte sind das Star-Rating auf der Bewertungseite und die Slideshow auf der Indexseite.
+CSS ist eine Gestaltungssprache. Hiermit kann man das Design von HTML Seiten auslagern und anpassen. Bootstrap ist in diesem Zusammenhang ein Framework, welches vordefinierte Gestaltungsmöglichkeiten bzw. Klassen/IDs in Form von CSS bietet. Jede HTML-Seite besitzt "Design-Objekte"/CSS-Klassen von Bootstrap, aber auch "eigenes" CSS wurde geschrieben (public/stylesheets/toka_style). Es wurde unter anderem auch durchgehend mit dem GRID-System zur Layout-Gestaltung von Bootstrap gearbeitet. Zudem wurde ein eigener Site-Wrapper für eine schönere und übersichtlicher Optik geschrieben. Auch Repsonsive war ein Thema. Responsive beschreibt das proportionale Anpassen der Website zur aktuellen Fenstergröße. Zur Umsetzung von Responsive wurden auch auf Bootstrap-Elemente zurückgegriffen. Im Header beispielsweise werden die Listenpunkte ab einer bestimmten Größe zu einem Toggle zusammengefasst. Weitere nennenswerte Design-Objekte sind das Star-Rating auf der Bewertungseite und die Slideshow auf der Indexseite.
 + Star-Rating: rate_hotel.scala.html
 + Wrapper: main.scala.html / toka_style.css
 + Responsive: main.scala.html
