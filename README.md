@@ -34,7 +34,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 + Ermitteln & anzeigen letzten 3 Bewertungen
 
 ###### Nicht-Funktional
-+ Design / Responsive
++ Design / Responsive (Bootstrap)
 + Slideshow (Bootstrap) für Anzeige beste Hotels Jahr 2015
 + Star-Rating (Bootstrap)
 
