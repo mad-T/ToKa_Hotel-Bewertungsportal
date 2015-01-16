@@ -42,17 +42,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 ![Use-Case]
 (https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/use_case.JPG)
 
-##### 2. Architektur
-
-###### UML
-![UML]
-(https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/klassendiagramm.jpg)
-
-###### ERM
-![ERM]
-(https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/erm.JPG)
-
-##### 3. Erste Ideen
+##### 2. Erste Ideen
 ###### Mock-Ups
 Im Folgenden zeigen wir 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgendem Link angeschaut werden.
 
@@ -63,6 +53,16 @@ Link - [Mock-Ups Dropbox](https://www.dropbox.com/s/2yw0ym3atam1f7g/hotel-rating
 
 ![Bewertungs-Seite]
 (https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/mockup_bewertung.jpg)
+
+##### 3. Architektur
+###### UML
+![UML]
+(https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/klassendiagramm.jpg)
+
+###### ERM
+![ERM]
+(https://github.com/toka-htwg/ToKa_Hotel-Bewertungsportal/blob/master/public/images/dokumentation/erm.JPG)
+
 
 Umsetzung
 ----------
