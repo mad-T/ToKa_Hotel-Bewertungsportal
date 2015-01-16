@@ -35,7 +35,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 
 ###### Nicht-Funktional
 + Design / Responsive
-+ Slideshow für Anzeige beste Hotels <Jahr>
++ Slideshow für Anzeige beste Hotels Jahr 2015
 + Star-Rating (Bootstrap)
 
 ###### Use-Case
@@ -54,7 +54,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 
 ##### 3. Erste Ideen
 ###### Mock-Ups
-Im Folgenden 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgenden Link angeschaut werden.
+Im Folgenden zeigen wir 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgenden Link angeschaut werden.
 
 Link - [Mock-Ups Dropbox](https://www.dropbox.com/s/2yw0ym3atam1f7g/hotel-rating-platform_toka.pdf?dl=0)
 
