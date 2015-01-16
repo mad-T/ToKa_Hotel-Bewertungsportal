@@ -54,7 +54,7 @@ Zur Umsetzung des Projekts sollen folgende Technologien zum Einsatz kommen:
 
 ##### 3. Erste Ideen
 ###### Mock-Ups
-Im Folgenden zeigen wir 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgenden Link angeschaut werden.
+Im Folgenden zeigen wir 2 wichtigere Mock-Ups. Alle weiteren können in der Dropbox unter folgendem Link angeschaut werden.
 
 Link - [Mock-Ups Dropbox](https://www.dropbox.com/s/2yw0ym3atam1f7g/hotel-rating-platform_toka.pdf?dl=0)
 
@@ -118,7 +118,7 @@ Befinden sich mehrere User auf der Startseite der Website, erhalten diese alle I
 +	Application (public static WebSocket<JsonNode> recentlyRate())
 +	HotelObserver.java
 
-###### SQL-Incection
+###### SQL-Injection
 Um unerwünschte Zu- und Eingriffe auf die Datenbank zu vermeiden, wurden alle Datenbankabfragen im Projekt mittels prepared Statements realisiert. Um (böswillige) SQL-Statements innerhalb der Inputs zu vermeiden, wurden die schon in Kapitel „HTML5“ erwähnten Patterns eingesetzt. Ein SQL-Statement mit seiner entsprechenden Syntax kann also erst gar nicht abgesendet werden.
 + Patterns: registration.scala.html
 + preparedStatements: model.java
