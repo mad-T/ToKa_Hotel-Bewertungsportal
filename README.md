@@ -119,6 +119,8 @@ Befinden sich mehrere User auf der Startseite der Website, erhalten diese alle I
 +	Application (public static WebSocket<JsonNode> recentlyRate())
 +	HotelObserver.java
 
+> Hinweis: Die Websockets funktionieren auf Heroku nur über http://-Aufruf, nicht https://
+
 ###### SQL-Injection
 Um unerwünschte Zu- und Eingriffe auf die Datenbank zu vermeiden, wurden alle Datenbankabfragen im Projekt mittels prepared Statements realisiert. Um (böswillige) SQL-Statements innerhalb der Inputs zu vermeiden, wurden die schon in Kapitel „HTML5“ erwähnten Patterns eingesetzt. Ein SQL-Statement mit seiner entsprechenden Syntax kann also erst gar nicht abgesendet werden.
 + Patterns: registration.scala.html
@@ -134,7 +136,7 @@ Mit Heroku hat man die Möglichkeit, sein Projekt hosten zu lassen. Grob gesagt 
 
 Link - [Toka Hotelbewertungsportal](http://toka-hotelbewertung.herokuapp.com)
 
-> Hinweis: über https:// funktionieren die Websockets nicht
+> Hinweis: Link wird über http:// aufgerufen, da über https:// die Websockets nicht funktionieren
 
 ###### Sonstige Funktionen / wichtiger Code
 Außerdem wurden zusätzlich folgende Funktionen implementiert:
@@ -162,4 +164,4 @@ Verweise
 ###### Heroku
 Link - [Toka Hotelbewertungsportal](http://toka-hotelbewertung.herokuapp.com)
 
-> Hinweis: über https:// funktionieren die Websockets nicht
+> Hinweis: Link wird über http:// aufgerufen, da über https:// die Websockets nicht funktionieren
